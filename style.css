@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;    
+}
+
+body {
+    background-color: hsl(30, 38%, 92%);
+}
+
+/* This is a common approach so don't overthink it */
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card {
+    background-color: white;
+    margin: 0 16px 0; /* I used this to center the card but appearently this doesn't work when the viewport is too large! When it's small the card's sides are always of a distance of 16 px from the viewport but when the viewport is too big, the margin is still there but it's not doing anything: not pushing other elements or the viewport by 16px on the sides. */
+    max-height: 611px;
+    border-radius: 10px;
+}
+
+
+
+.img-col img {
+    width: 100%; /* I didn't use max-width afterwards because I set the text's size to a fixed value, so I know that the elements will not make the container any bigger, therefore the image will not get any bigger */
+    height: 240px;
+    border-radius: 10px 0 0 10px;
+}
+
+
+.txt-col {
+    margin: 24px;
+}
+
+.txt-col h2 {
+    font-family: Montserrat, sans-serif; /* We use "" when the name of the font contains special characters or spaces */
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 4.8px;
+    color: hsl(228, 12%, 48%);
+    margin-bottom: 10px;
+}
+
+.txt-col h1 {
+    font-family: Fraunces, serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    max-width: 277px;
+}
+
+.txt-col p {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: hsl(228, 12%, 48%);
+    letter-spacing: 0.15px; /* actual value 0.14px */ 
+    line-height: 150%; /* actual value 156.4% */
+    margin-bottom: 24px; 
+    max-width: 297px; 
+}
+
+
+.txt-col .price {
+    display: flex;
+    /* justify-content: center; main axis */
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.txt-col .price span:nth-child(1){
+    font-family: "Fraunces", serif;
+    font-size: 31px; /* I didn't round this value */
+    font-weight: 700;
+    color: hsl(158, 36%, 37%);
+    margin-right: 18px;
+}
+
+.txt-col .price span:nth-child(2){
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    color: hsl(228, 12%, 48%);
+    letter-spacing: 0.5px; /* actual value 0.6px */
+    text-decoration: line-through;
+}
+
+.txt-col button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    background-color: hsl(158, 36%, 37%);
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    padding: 15px 85px;
+    margin: 0 auto;  /* actual value 16px 94px 15px 93px */
+    /* I didn't use percentages because as I mentioned earlier the container will not get any bigger and so will not the btn */
+}
+
+.txt-col button img {
+    margin-right: 10px;
+}
+
+.txt-col button:hover {
+    background-color: hsl(212, 21%, 14%);
+}
+
+@media (min-width:768px) and (max-width: 1023px){
+    /* for tablets, but I'm not doing that with this project */
+}
+
+@media (min-width:1024px) {
+    .container {
+        height: 100vh;
+        width: 100vw;
+        /* if you initially set the height and width properties of the container element and then applied a media query targeting a minimum width of 1024px without specifying the height and width properties within that media query, it's possible that the container's dimensions were affected by the absence of these properties. */
+    }
+
+    .card {
+        margin: 175px 420px;
+        display: flex;
+        max-height: none;
+    }
+
+    .img-col img { /* As you can see we didn't select the picture eleemnt, we selected the img element instead and set its width and height */
+        width: 300px;
+        height: 100%;
+    }
+
+    .txt-col {
+        margin: 32px;
+    }
+
+    .txt-col h2 {
+        font-size: 14px;
+        letter-spacing: 3.7px; /* actual value 3.71px */
+        margin-bottom: 16px;
+    }
+
+    .txt-col h1 {
+        margin-bottom: 24px;
+        min-width: 236px; /* figma value 192px */
+        max-width: 236px;
+    }
+
+    .txt-col p {
+        letter-spacing: 0.2px; /* actual value 0.21px */ 
+        line-height: normal; 
+        min-width: 236px; 
+        max-width: 236px; /* This is a common approach */ /* value if figma 226px */
+        margin-bottom: 30px; /* actual value 29px */ 
+    }
+    .txt-col .price {
+        margin-bottom: 28px;
+    }
+
+    .txt-col .price span:nth-child(1){
+        margin-right: 27px;
+    }
+
+    .txt-col .price span:nth-child(2){
+        font-size: 14px;
+        letter-spacing: 0.7px; /* actual value 0.66px */
+    }
+
+    .txt-col button {
+        padding-right: 63px;
+        padding-left: 63px;
+    }
+}   
+
+/* It doesn't look good on mobile screens of a size of s, and the button on some screens doesn't look wide enough, it looks too centered! */

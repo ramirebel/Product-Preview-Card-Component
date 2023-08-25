@@ -32,7 +32,7 @@ body {
 .img-col img {
     width: 100%; /* I didn't use max-width afterwards because I set the text's size to a fixed value, so I know that the elements will not make the container any bigger, therefore the image will not get any bigger */
     height: 240px;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 
@@ -137,7 +137,7 @@ body {
     .img-col img { /* As you can see we didn't select the picture eleemnt, we selected the img element instead and set its width and height */
         width: 300px;
         height: 100%;
-        border-radius: 10px 10px 0 0;
+        border-radius: 10px 0 0 10px;
     }
 
     .txt-col {
